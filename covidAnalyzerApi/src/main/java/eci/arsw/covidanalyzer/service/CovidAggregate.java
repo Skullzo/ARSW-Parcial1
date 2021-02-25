@@ -44,10 +44,7 @@ public class CovidAggregate implements ICovidAggregateService {
 		return restfin;
 	}
 	@Override
-	public void upsertPersonWithMultipleTests(int id, ResultType type) {
-		for (Result it:respuesta)
-		{
-			System.out.println(it.getId()==id);
-		}
+	public void upsertPersonWithMultipleTests(Result result) {
+		System.out.println(result.getId());
 	}
 }

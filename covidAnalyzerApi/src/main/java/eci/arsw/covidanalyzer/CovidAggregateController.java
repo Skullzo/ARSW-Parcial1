@@ -7,6 +7,7 @@ import eci.arsw.covidanalyzer.service.ICovidAggregateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -74,8 +75,8 @@ public class CovidAggregateController {
     }
     @RequestMapping(value = "/covid/result/persona/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ResponseEntity<?> savePersonaWithMultipleTests(@RequestBody Result result) {
-        service.upsertPersonWithMultipleTests(1, null);
+    public ResponseEntity<?> savePersonaWithMultipleTests(@PathVariable String id, @RequestBody Result result) {
+        service.upsertPersonWithMultipleTests(result);
         return null;
     } 
 }
