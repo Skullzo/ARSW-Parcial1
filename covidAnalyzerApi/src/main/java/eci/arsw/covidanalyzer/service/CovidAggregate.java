@@ -46,5 +46,11 @@ public class CovidAggregate implements ICovidAggregateService {
 	@Override
 	public void upsertPersonWithMultipleTests(Result result) {
 		System.out.println(result.getId());
+		for (Result it:respuesta) {
+			if (it.getId()==result.getId()){
+				respuesta.remove(it);
+				respuesta.add(result);
+			}
+		}
 	}
 }
